@@ -1,25 +1,19 @@
 import "./App.css";
-import Footer from "./components/footer/footer";
-import Header from "./components/header/header";
-import LandingPage from "./screens/LandingPage/LandingPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MyNotes from "./screens/myNotes/MyNotes";
-import RegisterScreen from "./screens/registerScreen/registerScreen";
-import LoginScreen from "./screens/loginScreen/loginScreen";
+import Login from "./screens/login/loginPage";
+import SignUp from "./screens/signUp/signUp";
+import Admin from "./screens/adminPage/adminDashBoard";
+import LandingPage from "./screens/LandingPage/LandingPage";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<LandingPage/>} />
-          <Route path="/notes" element={<MyNotes/>} />
-          <Route path="/register" element={<RegisterScreen/>} />
-          <Route path="/login" element={<LoginScreen/>} />
-        </Routes>
-      </main>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/register" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </BrowserRouter>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 
 
-const LandingPage = () => {
+export default function LandingPage() {
     // useEffect(() => {
     //     const userInfo = localStorage.getItem("userInfo");
     //     if(userInfo){
@@ -30,4 +30,3 @@ const LandingPage = () => {
     )
 }
 
-export default LandingPage
