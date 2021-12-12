@@ -7,11 +7,18 @@ import "./loginPage.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      navigate("/user");
+    }
+  }, [navigate]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -34,7 +41,7 @@ export default function Login() {
       localStorage.setItem("userInfo", JSON.stringify(data));
       setError(false);
       setLoading(false);
-      navigate("/")
+      navigate("/user");
     } catch (error) {
       setError(true);
       setLoading(false);

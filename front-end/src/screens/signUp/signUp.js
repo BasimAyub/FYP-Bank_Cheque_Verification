@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/header";
 import ErrorMessage from "../../components/errorMessage";
@@ -21,6 +21,13 @@ export default function SignUp() {
   const [picMessage, setPicMessage] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      navigate("/user");
+    }
+  }, [navigate]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -111,7 +118,7 @@ export default function SignUp() {
                     </div>
                     <div className="login-form-group">
                       <input
-                      type="tel"
+                        type="tel"
                         className="login-form-control"
                         placeholder="Contact No."
                         value={phoneNumber}
@@ -120,7 +127,7 @@ export default function SignUp() {
                     </div>
                     <div className="login-form-group">
                       <input
-                      type="text"
+                        type="text"
                         className="login-form-control"
                         placeholder="Address"
                         value={address}
