@@ -41,7 +41,7 @@ export default function Header() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/signUp">
+                <a className="nav-link" href="/register">
                   SignUp
                 </a>
               </li>
